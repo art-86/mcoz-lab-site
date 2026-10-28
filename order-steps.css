@@ -1,0 +1,15 @@
+/* Three steps from selection to a clinic visit. */
+.site #how .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:24px 0 0}
+.site #how .steps article{position:relative;padding:24px;border-radius:28px;background:linear-gradient(135deg,#e7dfff,#f4f0ff);border:1px solid #ffffffc9;min-width:0}
+.site #how .steps article:nth-child(2){background:linear-gradient(135deg,#ffe4d4,#fff2e9)}
+.site #how .steps article:nth-child(3){background:linear-gradient(135deg,#d4eee6,#edf8f4)}
+.site #how .steps article>span{display:grid;place-items:center;position:static;width:44px;height:44px;margin:0 0 20px;border:0;border-radius:50%;background:#fff;color:#5433eb;font-size:20px;font-weight:600;box-shadow:none}
+.site #how .steps h3{font-size:22px;line-height:1.25;font-weight:600;letter-spacing:-.02em;margin:0 0 10px}
+.site #how .steps p{font-size:16px;line-height:1.5;color:#57515f;margin:0}
+.site #how .help-strip{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:14px;padding:24px 28px;border:1px solid #dfd5f7;border-radius:28px;background:#fff;box-shadow:none}
+.site #how .help-strip h3{font-size:22px;font-weight:600;line-height:1.25;margin:0 0 8px}
+.site #how .help-strip p{font-size:16px;color:#625d68;margin:0;line-height:1.5}
+.site #how .help-strip button{flex:none;max-width:300px;min-height:48px;padding:14px 22px;background:#5433eb;color:#fff;border:0;border-radius:999px;font-size:16px;line-height:1.3}
+.site #how .help-strip button:hover{background:#4325cf}
+@container(max-width:850px){.site #how .steps{grid-template-columns:1fr}.site #how .steps article{display:grid;grid-template-columns:44px 1fr;gap:0 16px;padding:22px}.site #how .steps article>span{grid-column:1;grid-row:1/3;margin:0}.site #how .steps h3,.site #how .steps p{grid-column:2}.site #how .help-strip{flex-wrap:wrap}}
+@container(max-width:540px){.site #how .steps{gap:12px;margin-top:18px}.site #how .steps article{padding:18px;border-radius:24px;grid-template-columns:36px 1fr;column-gap:12px}.site #how .steps article>span{width:36px;height:36px;font-size:18px}.site #how .steps h3{font-size:18px;margin-bottom:6px}.site #how .help-strip{padding:20px;border-radius:24px;gap:16px}.site #how .help-strip h3{font-size:20px}.site #how .help-strip button{width:100%;max-width:none;margin:0}}

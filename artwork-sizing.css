@@ -1,0 +1,22 @@
+/* Normalize rendered subject bounds, not the transparent PNG canvas. */
+.site .program .program-art{width:200px;height:200px;max-width:none;overflow:hidden;position:relative;flex:none}
+.site .program .program-art img{position:absolute;max-width:none;object-fit:fill;padding:0;margin:0}
+@container(min-width:851px){.site .program{grid-template-columns:minmax(0,1fr) 200px;column-gap:18px;padding:22px;min-height:244px}}
+@container(min-width:541px) and (max-width:850px){.site .program-grid{grid-template-columns:1fr}.site .program{grid-template-columns:minmax(0,1fr) 180px;min-height:220px}.site .program .program-art{width:180px;height:180px}}
+@container(max-width:540px){.site .program{grid-template-columns:minmax(0,1fr) 124px;gap:12px 8px;padding:16px;min-height:164px}.site .program .program-art{width:124px;height:124px}.site .program h3{overflow-wrap:anywhere;hyphens:auto}}
+@container(max-width:350px){.site .program{grid-template-columns:minmax(0,1fr) 108px}.site .program .program-art{width:108px;height:108px}}
+.site .program[data-program="heart"] .program-art img{width:108.153%;height:72.102%;left:-4.112%;top:14.900%;}
+.site .program[data-program="liver"] .program-art img{width:127.099%;height:84.732%;left:-13.549%;top:7.634%;}
+.site .program[data-program="hormones"] .program-art img{width:133.073%;height:88.715%;left:-15.627%;top:5.382%;}
+.site .program[data-program="prostate"] .program-art img{width:122.849%;height:98.472%;left:-13.573%;top:0.720%;}
+.site .program[data-program="urine"] .program-art img{width:155.922%;height:103.948%;left:-27.555%;top:-1.213%;}
+.site .program[data-program="gyn"] .program-art img{width:100.372%;height:80.326%;left:-1.797%;top:9.622%;}
+.site .program[data-program="cervix"] .program-art img{width:107.589%;height:71.726%;left:-3.794%;top:14.768%;}
+.site .program[data-program="gastro"] .program-art img{width:147.031%;height:98.020%;left:-25.956%;top:0.894%;}
+.site .program[data-program="breast"] .program-art img{width:142.672%;height:95.115%;left:-23.054%;top:1.885%;}
+.site .program[data-program="eye-preop"] .program-art img{width:119.326%;height:79.550%;left:-11.605%;top:11.468%;}
+
+.site .brand{max-width:100%;flex-shrink:0}.site .brand .clinic-logo{display:block;width:300px;height:auto;max-width:100%}@container(max-width:540px){.site .brand{width:100%}.site .brand .clinic-logo{width:280px;max-width:100%}}
+
+.site .program h3{hyphens:none;word-break:normal;overflow-wrap:normal}.site .program h3 br{display:block}
+.program-name-part{white-space:nowrap}

@@ -1,0 +1,13 @@
+.checkups-more{display:none}
+@container(max-width:540px){
+ .site #checkups .filters{display:flex;flex-wrap:wrap;gap:8px;overflow:visible;margin-right:0;max-width:100%}
+ .site #checkups .filters button{flex:0 0 auto;white-space:normal;font-size:14px;padding:10px 13px}
+ .site #checkups:not(.checkups-expanded) .program:nth-child(n+5){display:none}
+ .site #checkups:not(.checkups-expanded):has(.program:nth-child(5)) .checkups-more{display:flex;justify-content:center;margin:20px 0}
+ .site .checkups-more button{background:#fff;border:1px solid #bdd8e8;border-radius:10px;color:#0068ad;padding:13px 24px;min-height:44px}
+ .site #popular .test-grid{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc(100% - 24px);gap:12px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:2px 0 12px;scrollbar-width:thin;scrollbar-color:#b8cedd transparent}
+ .site #popular .test-card{scroll-snap-align:start;scroll-snap-stop:normal}
+ .site #popular .bottom{flex-wrap:wrap}
+ .site #popular .test-card strong{white-space:normal}
+}
+@container(max-width:540px){.site #about .laboratory-photo figcaption{display:none}}

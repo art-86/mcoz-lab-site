@@ -1,0 +1,32 @@
+# Private source research, screenshots and superseded copies
+/sources/
+/reference/
+/shop/
+/offer-preview.*
+
+# One-off import and content-generation scripts
+/*.cjs
+!/audit-site.cjs
+!/check-privacy.cjs
+!/build-direct-feed.cjs
+
+# Generated ad feeds require a verified production domain
+/feeds/
+
+# Image generation notes are not website resources
+/assets/**/*.json
+/assets/**/*.txt
+
+# Credentials, local configuration and transient artifacts
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.log
+*.zip
+node_modules/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

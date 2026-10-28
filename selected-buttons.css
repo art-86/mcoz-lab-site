@@ -1,0 +1,12 @@
+/* Button treatment selected from the frontend-design study. */
+body .primary,body #how .primary,body #contacts .primary,body .story-cta{background:#0068ad;color:#fff;border-radius:10px;box-shadow:none}
+body .primary:hover,body #how .primary:hover,body #contacts .primary:hover,body .story-cta:hover{background:#00538a}
+.site #popular .test-card button{background:#edf5f9;color:#0068ad;border:1px solid #d5e5ef;border-radius:9px;box-shadow:none}
+.site #popular .test-card button.selected{background:#0068ad;color:#fff}
+.site #offers .offer button{border-radius:10px;color:#0068ad}
+.site #offers .main-offer button{background:#0068ad;color:white}
+.site .search button{background:#0068ad;border-radius:50%;box-shadow:none}
+body :is(.primary,.story-cta):focus-visible,.site #popular .test-card button:focus-visible,.site #offers .offer button:focus-visible,.site .search button:focus-visible{outline:3px solid #0068ad;outline-offset:4px}
+
+/* Page background selected from the frontend-design study. */
+body,body #preview{background:#edf5f9}

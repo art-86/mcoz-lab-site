@@ -1,0 +1,42 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
+const assert = require('node:assert/strict');
+const root = __dirname;
+const baseArg = process.argv.find(x => x.startsWith('--base-url='));
+const draft = !baseArg;
+const base = new URL(baseArg ? baseArg.slice(11) : 'https://catalog-domain.invalid/');
+if (base.protocol !== 'https:' || base.search || base.hash || base.username || base.password) throw Error('Provide an HTTPS directory URL without query, fragment or credentials');
+if (!base.pathname.endsWith('/')) base.pathname += '/';
+if (!draft && /^(localhost|127\.|0\.|\[::1\])/.test(base.hostname)) throw Error('A public hostname is required');
+const dateArg = process.argv.find(x => x.startsWith('--date='));
+const today = dateArg ? dateArg.slice(7) : new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Moscow',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+assert.match(today,/^\d{4}-\d{2}-\d{2}$/);
+const context = {};
+vm.createContext(context);
+vm.runInContext('const tests=[];\n'+fs.readFileSync(path.join(root,'catalog-data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'catalog-pricing.js'),'utf8')+'\nthis.rows=catalogData;', context);
+const excludedIds = new Set(['lab-69c9c0665fef']); // Consultation on existing slides, not an analysis.
+const excluded = context.rows.filter(t=>excludedIds.has(t.id));
+const rows = context.rows.filter(t=>!excludedIds.has(t.id));
+assert.equal(new Set(rows.map(t=>t.id)).size, rows.length);
+assert.equal(rows.length, context.rows.length-excluded.length);
+const headers = ['ID','URL','Image','Title','Description','Price','Currency','Old Price','custom_label_0','custom_label_1','custom_label_2','custom_label_3','custom_label_4'];
+const promotionActive = today <= '2026-11-30';
+let discounts=0;
+const output = rows.map(t=>{
+  assert.ok(t.title && Number.isFinite(t.price) && t.price>0, t.id);
+  const sale = promotionActive && t.discount===30 && t.old>t.price;
+  if(sale) {discounts++;assert.ok(Math.abs(t.price-t.old*.7)<.011);}
+  const price = !promotionActive && t.old ? t.old : t.price;
+  const url=new URL('catalog.html',base);url.searchParams.set('test',t.id);
+  const description=['Лабораторное исследование в МЦОЗ, Москва, Октябрьская, 2.',t.code?`Код: ${t.code}.`:'',t.duration&&!/уточн/i.test(t.duration)?`Срок выполнения: ${t.duration}.`:'','Забор биоматериала оплачивается отдельно, если не включён в услугу.'].filter(Boolean).join(' ');
+  return [t.id,url.href,new URL('assets/laboratory-original.jpg',base).href,t.title,description,price,'RUB',sale?t.old:'',t.group,sale?'sale_30':'regular_price','laboratory_analysis',t.code||'',sale?'until_2026-11-30':''];
+});
+const csvCell = value=>'"'+String(value).replace(/"/g,'""')+'"';
+const csv = [headers,...output].map(row=>row.map(csvCell).join(',')).join('\r\n')+'\r\n';
+const dir=path.join(root,'feeds');fs.mkdirSync(dir,{recursive:true});
+const filename=draft?'yandex-direct-analyses-DRAFT.csv':'yandex-direct-analyses.csv';
+fs.writeFileSync(path.join(dir,filename),csv,'utf8');
+const report={status:draft?'DRAFT: public catalogue URL required':'Generated; public URLs and Direct validation still required',date:today,base:base.href,sourceCount:context.rows.length,offers:rows.length,discounts,categories:new Set(rows.map(t=>t.group)).size,excluded:excluded.map(t=>({id:t.id,title:t.title,reason:'Consultation, not an analysis'})),laboratoryPanelsIncluded:true,promotionEnds:'2026-11-30',filename};
+fs.writeFileSync(path.join(dir,'generation-report.json'),JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify(report,null,2));

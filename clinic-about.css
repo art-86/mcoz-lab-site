@@ -1,0 +1,13 @@
+#about .about-layout{grid-template-columns:.85fr 1.15fr;gap:18px;align-items:stretch}#about .proofs{display:grid;grid-template-columns:1fr 1fr;gap:12px}#about .proofs article{margin:0;padding:24px;border:0;border-radius:24px;background:linear-gradient(135deg,#eae3ff,#f6f3ff);display:flex;flex-direction:column}#about .proofs article:nth-child(2){background:linear-gradient(135deg,#d9f2eb,#edf9f5)}#about .proofs article:nth-child(3){background:linear-gradient(135deg,#ffead4,#fff5e9)}#about .proofs article:nth-child(4){background:linear-gradient(135deg,#ddeefa,#f0f7fc)}#about .proof-tag{font-size:14px;color:#585365;margin-bottom:14px}#about .proofs h3{font-size:22px;line-height:1.22;margin:0 0 12px}#about .proofs p{font-size:16px;line-height:1.5;color:#514c59;margin:0 0 18px}#about .proofs button{align-self:flex-start;text-align:left;font-size:14px;line-height:1.4;margin-top:auto;padding:0;color:#4931a2;text-decoration:none;min-height:36px}#about .laboratory-photo{min-height:480px}#about .laboratory-photo figcaption{padding:20px;font-size:16px;line-height:1.4}#about figcaption strong,#about figcaption span{display:block}#about figcaption strong{font-size:22px;font-weight:500;margin-bottom:8px}.equipment-list{padding-left:22px;font-size:16px;line-height:1.6}.equipment-list li{margin-bottom:12px}#dialog-content p{font-size:16px;line-height:1.6}
+@container(max-width:900px){#about .about-layout{grid-template-columns:1fr}#about .laboratory-photo{min-height:300px}#about .laboratory-photo img{object-position:center 45%}}
+@container(max-width:540px){#about .proofs{grid-template-columns:1fr;gap:10px}#about .proofs article{padding:20px}#about .proof-tag{margin-bottom:8px}#about .proofs h3{font-size:20px;margin-bottom:8px}#about .proofs p{margin-bottom:10px}#about .laboratory-photo{min-height:250px}#about .laboratory-photo figcaption{padding:14px;font-size:14px}#about figcaption strong{font-size:20px}#about .sectionhead{display:block}#about .sectionhead>button{max-width:none;margin-top:12px}}
+
+#about .sectionhead p{display:block;font-size:18px;line-height:1.45;margin-top:12px;color:#585365}@container(max-width:540px){#about .sectionhead p{display:block;font-size:16px;margin-top:10px}}
+
+/* Hide the thin frame embedded in the supplied photograph. */
+#about .laboratory-photo{overflow:hidden}
+#about .laboratory-photo img{transform:scale(1.02)}
+
+
+#about .proofs article{border:1px solid #fff}
+

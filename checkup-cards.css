@@ -1,0 +1,50 @@
+/* Shared saturated cover surfaces; text stays on the lighter side. */
+.site .program[data-program="heart"]{--cover-start:#ffd5c9;--cover-end:#ffab98}
+.site .program[data-program="liver"]{--cover-start:#ffecb4;--cover-end:#f8ce6b}
+.site .program[data-program="hormones"]{--cover-start:#e2d7ff;--cover-end:#bca0f0}
+.site .program[data-program="prostate"]{--cover-start:#cef1e2;--cover-end:#87d5bd}
+.site .program[data-program="urine"]{--cover-start:#d3eaff;--cover-end:#8ac5ee}
+.site .program[data-program="gyn"]{--cover-start:#ffdae8;--cover-end:#efa4c4}
+.site .program[data-program="cervix"]{--cover-start:#eddbff;--cover-end:#c8a0e9}
+.site .program[data-program="gastro"]{--cover-start:#ffe2bf;--cover-end:#f7b878}
+.site .program[data-program="breast"]{--cover-start:#ffd8e4;--cover-end:#f19bb6}
+.site .program[data-program="eye-preop"]{--cover-start:#d1edf5;--cover-end:#87cbdc}
+.site .program[data-program]{background:linear-gradient(115deg,var(--cover-start) 10%,var(--cover-end) 100%);box-shadow:none}
+.site .program[data-program] .program-art{background:transparent}
+@container(min-width:541px){
+ .site .program-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+ .site .program{display:grid;grid-template-columns:minmax(0,1fr) 36%;grid-template-rows:auto 1fr auto;gap:10px 8px;min-height:210px;padding:24px;border-radius:24px;isolation:isolate}
+ .site .program .label{display:none}
+ .site .program h3{grid-column:1;grid-row:1;font-size:1.375rem;line-height:1.25;font-weight:600;margin:0;letter-spacing:-.015em}
+ .site .program>p{grid-column:1;grid-row:2;margin:0;font-size:1rem;line-height:1.4;color:#46403f}
+ .site .program .program-art{position:absolute;right:-8px;bottom:0;width:40%;height:190px;margin:0;border-radius:0;z-index:-1}
+ .site .program-art img{padding:0;object-fit:contain}
+ .site .program-bottom{grid-column:1;grid-row:3;display:block;margin-top:4px}
+ .site .program-bottom>span:first-child{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+ .site .program strong{display:inline-block;background:#fff;border-radius:999px;padding:6px 14px;font-size:1.375rem;line-height:1.3;letter-spacing:normal;white-space:nowrap}
+ .site .program s{margin:0;color:#514948;font-size:.875rem}
+ .site .program .arrow{display:none}
+ .site .test-card{padding:20px;box-shadow:none;background:#e9edf2;border-radius:24px}
+ .site .test-card .kind{margin-bottom:10px;color:#5f5c59}
+ .site .test-card p{margin:8px 0 12px}.site .test-card .meta{margin:0 0 14px}
+ .site .test-card button{background:#fff}.site .test-card button.selected{background:#222;color:#fff}
+}
+@container(min-width:541px) and (max-width:850px){
+ .site .program{padding:20px;grid-template-columns:minmax(0,1fr) 28%;min-height:220px}
+ .site .program .program-art{width:32%;height:140px}
+ .site .program h3{font-size:1.25rem}.site .program>p{display:none}
+}
+/* Artwork owns a grid column, with equal safe margins and no edge bleed. */
+.site .program .program-art{position:relative;inset:auto;grid-column:2;grid-row:1 / -1;align-self:center;justify-self:center;width:100%;height:170px;max-width:190px;margin:0;border-radius:0;overflow:visible;z-index:0;pointer-events:none}
+.site .program .program-art img{width:100%;height:100%;padding:0;object-fit:contain;object-position:center;transform:none}
+.site .program{column-gap:16px}
+.site .program[data-program="heart"] .program-art img,.site .program[data-program="liver"] .program-art img{width:94%;height:94%}
+.site .program[data-program="urine"] .program-art img,.site .program[data-program="gastro"] .program-art img{width:90%;height:90%}
+@container(min-width:541px) and (max-width:850px){
+ .site .program{grid-template-columns:minmax(0,1fr) 34%;column-gap:12px}
+ .site .program .program-art{height:130px}
+}
+@container(max-width:540px){
+ .site .program{grid-template-columns:minmax(0,1fr) 112px;column-gap:10px;padding:16px;min-height:160px}
+ .site .program .program-art{grid-row:1 / 3;width:112px;height:112px;max-width:100%}
+}

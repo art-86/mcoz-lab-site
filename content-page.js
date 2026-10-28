@@ -1,0 +1,2 @@
+document.querySelector('#mobile').onclick=()=>{document.querySelector('#preview').classList.add('preview-mobile');document.querySelector('#mobile').setAttribute('aria-pressed','true');document.querySelector('#desktop').setAttribute('aria-pressed','false');};
+document.querySelector('#desktop').onclick=()=>{document.querySelector('#preview').classList.remove('preview-mobile');document.querySelector('#desktop').setAttribute('aria-pressed','true');document.querySelector('#mobile').setAttribute('aria-pressed','false');};

@@ -1,0 +1,47 @@
+/* Readable catalogue type scale. Values use the browser's default root size. */
+:root{--muted:#5f5c59}
+body{font-size:1rem;letter-spacing:normal}
+button,input{letter-spacing:normal}
+.site p{line-height:1.5}
+.site button,.site input,.site .desktopnav,.site .phone,.site .quicklinks button,.site .sectionhead>button,.site .filters button,.site .test-card button,.site .offer button,.site .help-strip button,.site .proofs a,.site .proofs button,.site .reviewlink a,.site .article-grid>button>span:last-child,.site .map-placeholder a{font-size:1rem}
+.site .intro .lead,.site .proofs p,.site details p,.site .contact-layout p{font-size:1.125rem;color:var(--muted)}
+.site .program p,.site .test-card p,.site .test-card .meta,.site .sectionhead p,.site .offer p,.site .steps p,.site .help-strip p,.site .reviewlink p,.site section>.small{font-size:1rem;line-height:1.5;color:var(--muted)}
+.site small,.site .small,.site .brand span,.site .location,.site .count,.site .program .label,.site .program s,.site .test-card .kind,.site .offer .label,.site .offer s,.site .date,.site .article-image,.site .laboratory-photo figcaption,.site .footer-links button,.site .mobilebar a,.site .mobilebar button{font-size:.875rem;line-height:1.5}
+.site .program s,.site .test-card .kind,.site .program .label,.site .article-image{color:var(--muted)}
+.site .stories button{font-size:.875rem;line-height:1.4;width:96px;flex-basis:96px}
+.site .circle{font-size:.875rem;letter-spacing:normal}
+.site .stories button:nth-child(3) .circle{font-size:1.25rem}
+.site .intro h1{font-size:2.5rem;line-height:1.15;letter-spacing:-.025em}
+.site h2,.site .sectionhead h2{font-size:1.875rem;line-height:1.25;letter-spacing:-.02em}
+.site .program h3,.site .test-card h3,.site .steps h3,.site .article-grid h3{font-size:1.375rem;line-height:1.3;letter-spacing:-.015em;min-height:0}
+.site .program strong{font-size:1.5rem;letter-spacing:-.02em}
+.site .program{min-height:0}.site .program p{margin-bottom:24px}.site .program-bottom{margin-top:auto}
+.site .test-card p{min-height:0}.site .test-card .bottom{flex-wrap:wrap}
+.site .main-offer p,.site .main-offer .date{color:#e0ddda}
+.site footer p,.site footer .small{font-size:1rem;color:#d0ccc8}
+.site summary{font-size:1.125rem;line-height:1.5;letter-spacing:normal}
+.site .desktopnav{flex-wrap:wrap;gap:18px 26px}
+.site .sectionhead{flex-wrap:wrap}
+.site .search input{font-size:1rem}
+.site .search button{font-size:1.625rem}
+.site .search-result span,.site .search-result button{font-size:1rem}
+.site .search-result{flex-wrap:wrap}
+dialog .dialog-header{font-size:.875rem}
+dialog #dialog-content p,dialog .checkout label,dialog .checkout input,dialog .checkout button,dialog .cart-row b,dialog .cart-row button,dialog .primary{font-size:1rem;line-height:1.5}
+dialog #dialog-content .source,dialog small,dialog .route-box,dialog .demo-note{font-size:.875rem!important;line-height:1.5}
+dialog .cart-row,dialog .cart-total{flex-wrap:wrap}
+@container(max-width:850px){.site .header{flex-wrap:wrap}.site .brand span{max-width:180px}}
+@container(max-width:540px){
+ .site .header{gap:14px}.site .header-actions{flex:1 1 100%;justify-content:space-between}.site .phone{font-size:1rem}.site .cart-button{font-size:1rem;padding:10px 16px}
+ .site .intro h1{font-size:1.875rem}.site .intro .lead,.site .proofs p,.site details p,.site .contact-layout p{font-size:1rem}
+ .site h2,.site .sectionhead h2{font-size:1.625rem}.site .sectionhead>button{max-width:none}
+ .site .stories button{width:82px;flex-basis:82px}.site .circle{width:66px;height:66px}
+ .site .program-grid{grid-template-columns:minmax(0,1fr);gap:18px}
+ .site .program{padding:20px;min-height:0}.site .program-art{width:calc(100% + 12px);height:180px;margin:-6px -6px 18px}
+ .site .program h3,.site .test-card h3,.site .steps h3,.site .article-grid h3{font-size:1.25rem}
+ .site .program strong{font-size:1.5rem}.site .program .label{margin-bottom:12px}
+ .site .quicklinks{flex-wrap:wrap;gap:12px 18px}.site .quicklinks button{text-align:left}
+ .site .article-grid>button{grid-template-columns:1fr}.site .article-image{grid-row:auto;min-height:90px;margin-bottom:16px}
+ .site .mobilebar{flex-wrap:wrap}.site .mobilebar a,.site .mobilebar button{padding:10px 5px}
+ .site .program .arrow{font-size:1.25rem}
+}
