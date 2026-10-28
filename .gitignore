@@ -9,6 +9,8 @@
 !/audit-site.cjs
 !/check-privacy.cjs
 !/build-direct-feed.cjs
+!/build-pages.cjs
+/_site/
 
 # Generated ad feeds require a verified production domain
 /feeds/
